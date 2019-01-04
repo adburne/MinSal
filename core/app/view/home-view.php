@@ -23,7 +23,7 @@
           <!-- small box -->
           <div class="small-box bg-purple">
             <div class="inner">
-              <h3><?php echo count(PersonData::getClients());?></h3>
+              <h3><?php echo count(EfectorData::getAll());?></h3>
 
               <p>Efectores</p>
             </div>
