@@ -81,10 +81,10 @@ $calidades = QualityData::getAll();
         <div class="container">
          <div class="row">
           <div class="col-md-2">
-          <input type="text" name="latitud" required class="form-control" id="latitud" placeholder="Latitud">
+          <input type="text" name="latitud" class="form-control" id="latitud" placeholder="Latitud">
           </div>
           <div class="col-md-2">
-          <input type="text" name="longitud" required class="form-control" id="longitud" placeholder="Longitud">
+          <input type="text" name="longitud" class="form-control" id="longitud" placeholder="Longitud">
           </div>
          </div>
         </div>
@@ -275,7 +275,7 @@ $calidades = QualityData::getAll();
          <input type="checkbox" name=tiene_guardia24hs value=""> Guardia 24 Hs.
          </div>
          <div class="col-md-3">
-         <input type="text" name="totalcamas" required class="form-control" id="totalcamas" placeholder="Total de camas del establecimiento">
+         <input type="text" name="totalcamas" class="form-control" id="totalcamas" placeholder="Total de camas del establecimiento">
          </div>
         </div>
 
@@ -309,10 +309,10 @@ $calidades = QualityData::getAll();
          <input type="checkbox" name=tiene_trasladoprogramado value=""> Servicio de traslado programado
          </div>
          <div class="col-md-3">
-         <input type="text" name="ambul_munic" required class="form-control" id="ambul_munic" placeholder="Cant. de ambulancias municipales">
+         <input type="text" name="ambul_munic" class="form-control" id="ambul_munic" placeholder="Cant. de ambulancias municipales">
          </div>
          <div class="col-md-3">
-         <input type="text" name="ambul_provin" required class="form-control" id="ambul_provin" placeholder="Cant. de ambulancias provinciales">
+         <input type="text" name="ambul_provin" class="form-control" id="ambul_provin" placeholder="Cant. de ambulancias provinciales">
          </div>
         </div>
 
@@ -325,7 +325,7 @@ $calidades = QualityData::getAll();
          <input type="checkbox" name=sicap value=""> SICAP
          </div>
          <div class="col-md-7">
-         <input type="text" name="otrossistemas" required class="form-control" id="otrossistemas" placeholder="Otros sistemas inform&aacute;ticos">
+         <input type="text" name="otrossistemas" class="form-control" id="otrossistemas" placeholder="Otros sistemas inform&aacute;ticos">
          </div>
         </div>
 
