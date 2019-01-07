@@ -243,28 +243,28 @@ if($efector!=null):
        <div class="container">
         <div class="row">
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_rx value=""> Radiolog&iacute;a
+         <input type="checkbox" name=tiene_rx value="tiene_rx" <?php echo ($efector->tiene_rx == 1 ? "checked":""); ?>> Radiolog&iacute;a
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_eco value=""> Ecograf&iacute;a
+         <input type="checkbox" name=tiene_eco value="tiene_eco" <?php echo ($efector->tiene_eco == 1 ? "checked":""); ?>> Ecograf&iacute;a
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_tac value=""> T.A.C.
+         <input type="checkbox" name=tiene_tac value="tiene_tac" <?php echo ($efector->tiene_tac == 1 ? "checked":""); ?>> T.A.C.
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_rmn value=""> R.M.N.
+         <input type="checkbox" name=tiene_rmn value="tiene_rmn"<?php echo ($efector->tiene_rmn == 1 ? "checked":""); ?>> R.M.N.
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_mamografia value=""> Mamograf&iacute;a
+         <input type="checkbox" name=tiene_mamografia value="tiene_mamografia"<?php echo ($efector->tiene_mamografia == 1 ? "checked":""); ?>> Mamograf&iacute;a
          </div>
         </div>
 
         <div class="row">
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_lab value=""> Laboratorio
+         <input type="checkbox" name=tiene_lab value="tiene_lab"<?php echo ($efector->tiene_lab == 1 ? "checked":""); ?>> Laboratorio
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_ecg value=""> E.C.G.
+         <input type="checkbox" name=tiene_ecg value="tiene_ecg"<?php echo ($efector->tiene_ecg == 1 ? "checked":""); ?>> E.C.G.
          </div>
         </div>
 
@@ -272,16 +272,16 @@ if($efector!=null):
          <br>
          <br>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_atencionmanana value=""> Atenci&oacute;n Mañana
+         <input type="checkbox" name=tiene_atencionmanana value="tiene_atencionmanana"<?php echo ($efector->tiene_atencionmanana == 1 ? "checked":""); ?>> Atenci&oacute;n Mañana
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_atenciontarde value=""> Atenci&oacute;n Tarde
+         <input type="checkbox" name=tiene_atenciontarde value="tiene_atenciontarde"<?php echo ($efector->tiene_atenciontarde == 1 ? "checked":""); ?>> Atenci&oacute;n Tarde
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_guardia24hs value=""> Guardia 24 Hs.
+         <input type="checkbox" name=tiene_guardia24hs value="tiene_guardia24hs"<?php echo ($efector->tiene_guardia24hs == 1 ? "checked":""); ?>> Guardia 24 Hs.
          </div>
          <div class="col-md-3">
-         <input type="text" name="totalcamas" class="form-control" id="totalcamas" placeholder="Total de camas del establecimiento">
+         <input type="text" name="totalcamas" id="totalcamas" value="<?php echo $efector->totalcamas; ?>" placeholder="Total de camas del establecimiento" class="form-control">
          </div>
         </div>
 
