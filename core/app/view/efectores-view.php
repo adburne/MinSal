@@ -3,7 +3,7 @@
 	<a href="index.php?view=newefector" class="btn btn-default pull-right"><i class='fa fa-th-list'></i> Nuevo Efector</a>
 	<h1>Nómina de Efectores</h1>
 	<p><b>Buscar efectores por nombre o código:</b></p>
-		<form id="searchrh">
+		<form id="searche">
 		<div class="row">
 			<div class="col-md-6">
 				<input type="hidden" name="view" value="efector">
