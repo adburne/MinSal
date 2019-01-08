@@ -17,7 +17,7 @@ if($efector!=null):
   <p class="alert alert-info">La informacion del efector se ha actualizado exitosamente.</p>
   <?php setcookie("efectorupd","",time()-18600); endif; ?>
   <br>
-  <form class="form-horizontal" method="post" enctype="multipart/form-data" id="addefector" action="index.php?view=updateefector" role="form">
+  <form class="form-horizontal" method="post" enctype="multipart/form-data" id="updateefector" action="index.php?view=updateefector" role="form">
 
    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -62,7 +62,7 @@ if($efector!=null):
         <select name="localidad_id" class="form-control">
         <option value="">-- NINGUNA --</option>
         <?php foreach($localidades as $localidad):?>
-        <option value="<?php echo $localidad->id;?>"><?php echo $localidad->name;?></option>
+        <option value="<?php echo $localidad->id;?>" <?php if($efector->codloc!=null&& $efector->codloc==$localidad->id){ echo "selected";}?>><?php echo $localidad->nombre;?></option>
         <?php endforeach;?>
         </select>    
         </div>
@@ -70,12 +70,12 @@ if($efector!=null):
 
        <!-- SubRegion -->
        <div class="form-group">
-       <label for="subregion_id" class="col-lg-2 control-label">Subregión</label>
+       <label for="codsubregion" class="col-lg-2 control-label">Subregión</label>
         <div class="col-md-6">
-        <select name="subregion_id" class="form-control">
+        <select name="codsubregion" class="form-control">
         <option value="">-- NINGUNA --</option>
         <?php foreach($subregiones as $subregion):?>
-        <option value="<?php echo $subregion->id;?>"><?php echo $subregion->nombre;?></option>
+        <option value="<?php echo $subregion->id;?>" <?php if($efector->codsubregion!=null&& $efector->codsubregion==$subregion->id){ echo "selected";}?>><?php echo $subregion->nombre;?></option>
         <?php endforeach;?>
         </select>    
         </div>
@@ -119,9 +119,9 @@ if($efector!=null):
         <select name="dependencia_id" class="form-control">
         <option value="">-- NINGUNA --</option>
         <?php foreach($dependencias as $dependencia):?>
-        <option value="<?php echo $dependencia->id;?>"><?php echo $dependencia->name;?></option>
+        <option value="<?php echo $dependencia->id;?>" <?php if($efector->codda!=null&& $efector->codda==$dependencia->id){ echo "selected";}?>><?php echo $dependencia->name;?></option>
         <?php endforeach;?>
-        </select>    
+        </select>
         </div>
        </div>
 
@@ -130,10 +130,9 @@ if($efector!=null):
        <label for="nivel" class="col-lg-2 control-label">Nivel</label>
         <div class="col-md-6">
         <select name="nivel" class="form-control">
-        <option value="0">No definido</option>
-        <option value="1">1° Nivel</option>
-        <option value="2">2° Nivel</option>
-        <option value="3">3° Nivel</option>
+        <?php for($n=0;$n<=3;$n++){
+        echo '<option value="'.$n.'"'.(($efector->nivel==$n)?' Selected':'').'>'.(($n==0)?'No definido':$n.'° Nivel')."</option>";
+        } ?>
         </select>    
         </div>
        </div>
@@ -289,19 +288,19 @@ if($efector!=null):
          <br>
          <br>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_saludmental value=""> Salud Mental Espec&iacute;fica
+         <input type="checkbox" name=tiene_saludmental value="tiene_saludmental"<?php echo ($efector->tiene_saludmental == 1 ? "checked":""); ?>> Salud Mental Espec&iacute;fica
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_maternidad value=""> Maternidad
+         <input type="checkbox" name=tiene_maternidad value="tiene_maternidad"<?php echo ($efector->tiene_maternidad == 1 ? "checked":""); ?>> Maternidad
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_pediatria value=""> Pediatr&iacute;a
+         <input type="checkbox" name=tiene_pediatria value="tiene_pediatria"<?php echo ($efector->tiene_pediatria == 1 ? "checked":""); ?>> Pediatr&iacute;a
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_saludbucal value=""> Salud Bucal
+         <input type="checkbox" name=tiene_saludbucal value="tiene_saludbucal"<?php echo ($efector->tiene_saludbucal == 1 ? "checked":""); ?>> Salud Bucal
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_sillonsaludbucal value=""> Sill&oacute;n odontolog&iacute;a
+         <input type="checkbox" name=tiene_sillonsaludbucal value="tiene_sillonsaludbucal"<?php echo ($efector->tiene_sillonsaludbucal == 1 ? "checked":""); ?>> Sill&oacute;n odontolog&iacute;a
          </div>
         </div>
 
@@ -309,40 +308,40 @@ if($efector!=null):
          <br>
          <br>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_movilidad value=""> Movilidad
+         <input type="checkbox" name=tiene_movilidad value="tiene_movilidad"<?php echo ($efector->tiene_movilidad == 1 ? "checked":""); ?>> Movilidad
          </div>
          <div class="col-md-3">
-         <input type="checkbox" name=tiene_trasladoprogramado value=""> Servicio de traslado programado
+         <input type="checkbox" name=tiene_trasladoprogramado value="tiene_trasladoprogramado"<?php echo ($efector->tiene_trasladoprogramado == 1 ? "checked":""); ?>> Servicio de traslado programado
          </div>
          <div class="col-md-3">
-         <input type="text" name="ambul_munic" class="form-control" id="ambul_munic" placeholder="Cant. de ambulancias municipales">
+         <input type="text" name="ambul_munic" id="ambul_munic" value="<?php echo $efector->ambul_munic; ?>" placeholder="Cant. de ambulancias municipales" class="form-control">
          </div>
          <div class="col-md-3">
-         <input type="text" name="ambul_provin" class="form-control" id="ambul_provin" placeholder="Cant. de ambulancias provinciales">
+         <input type="text" name="ambul_provin" id="ambul_provin" value="<?php echo $efector->ambul_provin; ?>" placeholder="Cant. de ambulancias provinciales" class="form-control">
          </div>
         </div>
 
         <div class="row">
          <br>
          <div class="col-md-2">
-         <input type="checkbox" name=diagnose value=""> Diagnose
+         <input type="checkbox" name=diagnose value="diagnose"<?php echo ($efector->diagnose == 1 ? "checked":""); ?>> Diagnose
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=sicap value=""> SICAP
+         <input type="checkbox" name=sicap value="sicap"<?php echo ($efector->sicap == 1 ? "checked":""); ?>> SICAP
          </div>
          <div class="col-md-7">
-         <input type="text" name="otrossistemas" class="form-control" id="otrossistemas" placeholder="Otros sistemas inform&aacute;ticos">
+         <input type="text" name="otrossistemas" id="otrossistemas" value="<?php echo $efector->otrossistemas; ?>" placeholder="Otros sistemas inform&aacute;ticos" class="form-control">
          </div>
         </div>
 
         <div class="row">
         <br>
          <div class="col-md-11">
-         <textarea name="otrosservicios" class="form-control" id="otrosservicios" placeholder="Otros servicios"></textarea>
+         <textarea name="otrosservicios" id="otrosservicios" value="<?php echo $efector->otrosservicios; ?>" placeholder="Otros servicios" class="form-control"></textarea>
          </div>
          <div class="col-md-11">
          <br>
-         <textarea name="efectorreferencia" class="form-control" id="efectorreferencia" placeholder="Efectores de referencia"></textarea>
+         <textarea name="efectorreferencia" id="efectorreferencia" value="<?php echo $efector->efectorreferencia; ?>" placeholder="Efectores de referencia" class="form-control"></textarea>
          </div>
         </div>
        </div>
@@ -366,19 +365,19 @@ if($efector!=null):
       <div class="container">
         <div class="row">
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_aguapotable value=""> Agua Potable
+         <input type="checkbox" name=tiene_aguapotable value="tiene_aguapotable"<?php echo ($efector->tiene_aguapotable == 1 ? "checked":""); ?>> Agua Potable
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_gasnatural value=""> Gas Natural
+         <input type="checkbox" name=tiene_gasnatural value="tiene_gasnatural"<?php echo ($efector->tiene_aguapotable == 1 ? "checked":""); ?>> Gas Natural
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_calefaccion value=""> Calefacci&oacute;n
+         <input type="checkbox" name=tiene_calefaccion value="tiene_calefaccion"<?php echo ($efector->tiene_calefaccion == 1 ? "checked":""); ?>> Calefacci&oacute;n
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_aireacondicionado value=""> Aire Acondicionado
+         <input type="checkbox" name=tiene_aireacondicionado value="tiene_aireacondicionado"<?php echo ($efector->tiene_aireacondicionado == 1 ? "checked":""); ?>> Aire Acondicionado
          </div>
          <div class="col-md-2">
-         <input type="checkbox" name=tiene_internet value=""> Internet
+         <input type="checkbox" name=tiene_internet value="tiene_internet"<?php echo ($efector->tiene_internet == 1 ? "checked":""); ?>> Internet
          </div>
         </div>
 
@@ -388,7 +387,7 @@ if($efector!=null):
        <br>
        <label for="cant_pc" class="col-lg-2 control-label">Cantidad de computadoras</label>
         <div class="col-md-2">
-        <input type="text" name="cant_pc" class="form-control" id="cant_pc" placeholder="Cantidad">
+        <input type="text" name="cant_pc" id="cant_pc" value="<?php echo $efector->cant_pc; ?>" placeholder="Cantidad" class="form-control">
         </div>
        </div>
 
@@ -400,7 +399,7 @@ if($efector!=null):
          <select name="codda_titularidadinmueble" class="form-control">
          <option value="">-- NINGUNA --</option>
          <?php foreach($dependencias as $dependencia):?>
-         <option value="<?php echo $dependencia->id;?>"><?php echo $dependencia->name;?></option>
+         <option value="<?php echo $dependencia->id;?>" <?php if($efector->codda_titularidadinmueble!=null&& $efector->codda_titularidadinmueble==$dependencia->id){ echo "selected";}?>><?php echo $dependencia->name;?></option>
          <?php endforeach;?>
          </select>    
          </div>
@@ -413,7 +412,7 @@ if($efector!=null):
          <select name="codcalidad_estructuraedilicia" class="form-control">
          <option value="">-- NINGUNA --</option>
          <?php foreach($calidades as $calidad):?>
-         <option value="<?php echo $calidad->id;?>"><?php echo $calidad->name;?></option>
+         <option value="<?php echo $calidad->id;?>" <?php if($efector->codda_titularidadinmueble!=null&& $efector->codda_titularidadinmueble==$calidad->id){ echo "selected";}?>><?php echo $calidad->name;?></option>
          <?php endforeach;?>
          </select>    
          </div>
@@ -422,7 +421,7 @@ if($efector!=null):
         <div class="row">
          <br>
          <div class="col-md-11">
-         <textarea rows="6" name="obrasencurso" class="form-control" id="obrasencurso" placeholder="Obras en Curso"></textarea>
+         <textarea name="obrasencurso" id="obrasencurso" value="<?php echo $efector->obrasencurso; ?>" placeholder="Obras en Curso" class="form-control"></textarea>
          </div>
         </div>
 
@@ -441,7 +440,7 @@ if($efector!=null):
 </div>
  
 <div class="form-group" align="center">
- <button type="submit" class="btn btn-primary">Agregar Efector</button>
+ <button type="submit" class="btn btn-primary">Actualizar Efector</button>
 </div>
 </form>
 
