@@ -9,18 +9,18 @@ if(isset($_GET["limit"]) && $_GET["limit"]!="" && $_GET["limit"]!=$limit){
 	$limit=$_GET["limit"];
 }
 
-$Efectores = EfectorData::getLikeByUserId($_GET["efector"],$_SESSION["user_id"]);
+$Efectores = EfectorData::getLike($_GET["efector"]);
 
 if(count($Efectores)>0){
 
 if($page==1){
-$curr_Efector = EfectorData::getLikeByPageUserId($_GET["efector"],$Efectores[0]->id,$limit,$_SESSION["user_id"]);
+$curr_Efector = EfectorData::getLikeByPage($_GET["efector"],$Efectores[0]->id,$limit);
 }else{
-$curr_Efector = EfectorData::getLikeByPageUserId($_GET["efector"],$Efectores[($page-1)*$limit]->id,$limit,$_SESSION["user_id"]);
-}
+$curr_Efector = EfectorData::getLikeByPage($_GET["efector"],$Efectores[($page-1)*$limit]->id,$limit);
 
+}
 $npaginas = floor(count($Efectores)/$limit);
-$spaginas = count($Efectores)%$limit;
+ $spaginas = count($Efectores)%$limit;
 
 if($spaginas>0){ $npaginas++;}
 
