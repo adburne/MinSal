@@ -421,7 +421,7 @@ if($efector!=null):
         <div class="row">
          <br>
          <div class="col-md-11">
-         <textarea name="obrasencurso" id="obrasencurso" value="<?php echo $efector->obrasencurso; ?>" placeholder="Obras en Curso" class="form-control"></textarea>
+         <textarea name="enobrasyconstruccion" id="enobrasyconstruccion" value="<?php echo $efector->obrasencurso; ?>" placeholder="Obras en Curso" class="form-control"></textarea>
          </div>
         </div>
 

@@ -125,7 +125,7 @@ class EfectorData {
 		$sql .= "tiene_trasladoprogramado=\"$this->tiene_trasladoprogramado\", ";
 		$sql .= "ambul_munic=\"$this->ambul_munic\", ";
 		$sql .= "ambul_provin=\"$this->ambul_provin\", ";
-		$sql .= "total_camas=\"$this->total_camas\", ";
+		$sql .= "totalcamas=\"$this->totalcamas\", ";
 		$sql .= "sicap=\"$this->sicap\", ";
 		$sql .= "diagnose=\"$this->diagnose\", ";
 		$sql .= "otrossistemas=\"$this->otrossistemas\", ";
