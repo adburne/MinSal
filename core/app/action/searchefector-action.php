@@ -51,11 +51,11 @@ if($px<=$npaginas):
 	</thead>
 	<?php foreach($curr_Efector as $Efector):?>
 	<tr>
-		<td><?php echo $Efector->codest; ?></td>
-		<td><?php echo $Efector->nomest; ?></td>
+		<td style="width:10px;"><?php echo $Efector->codest; ?></td>
+		<td style="width:40px;"><?php echo $Efector->nomest; ?></td>
 		
 
-		<td style="width:70px;">
+		<td style="width:40px;">
 		<a href="index.php?view=editefector&id=<?php echo $Efector->id; ?>" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
 		<!-- <a href="index.php?view=delefector&id=<?php echo $Efector->id; ?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a> -->
 		</td>
