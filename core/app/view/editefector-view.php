@@ -57,9 +57,9 @@ if($efector!=null):
 
        <!-- Localidad -->
        <div class="form-group">
-       <label for="localidad_id" class="col-lg-2 control-label">Localidad</label>
+       <label for="codloc" class="col-lg-2 control-label">Localidad</label>
         <div class="col-md-6">
-        <select name="localidad_id" class="form-control">
+        <select name="codloc" class="form-control">
         <option value="">-- NINGUNA --</option>
         <?php foreach($localidades as $localidad):?>
         <option value="<?php echo $localidad->id;?>" <?php if($efector->codloc!=null&& $efector->codloc==$localidad->id){ echo "selected";}?>><?php echo $localidad->nombre;?></option>
@@ -114,9 +114,9 @@ if($efector!=null):
 
        <!-- Dependencia -->
        <div class="form-group">
-       <label for="dependencia_id" class="col-lg-2 control-label">Dependencia</label>
+       <label for="codda" class="col-lg-2 control-label">Dependencia</label>
         <div class="col-md-6">
-        <select name="dependencia_id" class="form-control">
+        <select name="codda" class="form-control">
         <option value="">-- NINGUNA --</option>
         <?php foreach($dependencias as $dependencia):?>
         <option value="<?php echo $dependencia->id;?>" <?php if($efector->codda!=null&& $efector->codda==$dependencia->id){ echo "selected";}?>><?php echo $dependencia->name;?></option>
@@ -439,10 +439,16 @@ if($efector!=null):
  </div>
 </div>
  
-<div class="form-group" align="center">
- <button type="submit" class="btn btn-primary">Actualizar Efector</button>
+<div class="form-group">
+ <div class="col-lg-offset-5 col-lg-10">
+  <input type="hidden" name="efector_id" value="<?php echo $efector->id; ?>">
+  <button type="submit" class="btn btn-success">Actualizar Efector</button>
+ </div>
 </div>
+<br>
+
 </form>
+
 
 
 <script>
