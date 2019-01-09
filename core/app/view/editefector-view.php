@@ -412,7 +412,7 @@ if($efector!=null):
          <select name="codcalidad_estructuraedilicia" class="form-control">
          <option value="">-- NINGUNA --</option>
          <?php foreach($calidades as $calidad):?>
-         <option value="<?php echo $calidad->id;?>" <?php if($efector->codda_titularidadinmueble!=null&& $efector->codda_titularidadinmueble==$calidad->id){ echo "selected";}?>><?php echo $calidad->name;?></option>
+         <option value="<?php echo $calidad->id;?>" <?php if($efector->codcalidad_estructuraedilicia!=null&& $efector->codcalidad_estructuraedilicia==$calidad->id){ echo "selected";}?>><?php echo $calidad->name;?></option>
          <?php endforeach;?>
          </select>    
          </div>
