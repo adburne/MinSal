@@ -425,6 +425,13 @@ if($efector!=null):
          </div>
         </div>
 
+        <div class="row">
+         <br>
+         <div class="col-md-11">
+         <textarea name="areaadesarrollar" id="areaadesarrollar" value="<?php echo $efector->areaadesarrollar; ?>" placeholder="Area a desarrollar" class="form-control"></textarea>
+         </div>
+        </div>
+
 
        </div>
 

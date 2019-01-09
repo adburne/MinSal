@@ -53,15 +53,15 @@ if(count($_POST)>0){
  $efector->tiene_aireacondicionado = (isset($_POST["tiene_aireacondicionado"])? "1" : "0");
  $efector->tiene_internet = (isset($_POST["tiene_internet"])? "1" : "0");
  $efector->cant_pc = $_POST["cant_pc"];
- $efector->codcalidad_estructuraedilicia = $_POST["codcalidad_estructuraedilicia"];
- $efector->codda_titularidadinmueble = $_POST["codda_titularidadinmueble"];
+ if($_POST["codcalidad_estructuraedilicia"]!=""){ $codloc=$_POST["codcalidad_estructuraedilicia"];}
+ if($_POST["codda_titularidadinmueble"]!=""){ $codloc=$_POST["codda_titularidadinmueble"];}
  $efector->areaadesarrollar = $_POST["areaadesarrollar"];
  $efector->enobrasyconstruccion = $_POST["enobrasyconstruccion"];
  $efector->user_id = $_SESSION["user_id"];
  $efector->update();
 
-//setcookie("efectorupd","true");
-//print "<script>window.location='index.php?view=editefector&id=$_POST[efector_id]';</script>";
+setcookie("efectorupd","true");
+print "<script>window.location='index.php?view=editefector&id=$_POST[efector_id]';</script>";
 
 
 }
