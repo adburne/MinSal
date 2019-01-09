@@ -172,6 +172,13 @@ class EfectorData {
 		return Model::many($query[0],new EfectorData());
 	}
 
+	public static function getAllByUserId($user_id){
+		$sql = "select E.* from ".self::$tablename." E INNER JOIN user_efectores UE ";
+		$sql .= "ON E.Id=UE.efector_id ";
+		$sql .= "WHERE UE.user_id=$user_id";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new EfectorData());
+	}
 
 	public static function getAllByPage($start_from,$limit){
 		$sql = "select * from ".self::$tablename." where id>=$start_from limit $limit";
