@@ -11,8 +11,8 @@ if(count($_POST)>0){
  $efector->longitud = $_POST["longitud"];
  $efector->telefono = $_POST["telefono"];
  $efector->email = $_POST["email"];
- if($_POST["codda"]!=""){ $codloc=$_POST["codda"];}
- if($_POST["nivel"]!=""){ $codloc=$_POST["nivel"];}
+ if($_POST["codda"]!=""){ $efector->codda=$_POST["codda"];}
+ if($_POST["nivel"]!=""){ $efector->nivel=$_POST["nivel"];}
  $efector->director = $_POST["director"];
  $efector->directortelefono = $_POST["directortelefono"];
  $efector->directoremail = $_POST["directoremail"];
@@ -53,8 +53,8 @@ if(count($_POST)>0){
  $efector->tiene_aireacondicionado = (isset($_POST["tiene_aireacondicionado"])? "1" : "0");
  $efector->tiene_internet = (isset($_POST["tiene_internet"])? "1" : "0");
  $efector->cant_pc = $_POST["cant_pc"];
- if($_POST["codcalidad_estructuraedilicia"]!=""){ $codloc=$_POST["codcalidad_estructuraedilicia"];}
- if($_POST["codda_titularidadinmueble"]!=""){ $codloc=$_POST["codda_titularidadinmueble"];}
+ $efector->codcalidad_estructuraedilicia = $_POST["codcalidad_estructuraedilicia"];
+ if($_POST["codda_titularidadinmueble"]!=""){$efector->codda_titularidadinmueble=$_POST["codda_titularidadinmueble"];}
  $efector->areaadesarrollar = $_POST["areaadesarrollar"];
  $efector->enobrasyconstruccion = $_POST["enobrasyconstruccion"];
  $efector->user_id = $_SESSION["user_id"];
