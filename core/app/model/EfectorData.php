@@ -216,13 +216,6 @@ class EfectorData {
 		return Model::many($query[0],new EfectorData());
 	}
 
-
-	public static function getAllByUserId($user_id){
-		$sql = "select * from ".self::$tablename." where user_id=$user_id order by created_at desc";
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new EfectorData());
-	}
-
 	public static function getAllByCategoryId($category_id){
 		$sql = "select * from ".self::$tablename." where category_id=$category_id order by created_at desc";
 		$query = Executor::doit($sql);
