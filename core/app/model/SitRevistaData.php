@@ -3,7 +3,7 @@ class SitRevistaData {
 	public static $tablename = "sit_revista";
 
 	public function __constructor(){
-		$this->name = "";
+        $this->name = "";
 		$this->created_at = "NOW()";
 	}
 
@@ -22,7 +22,6 @@ class SitRevistaData {
 		Executor::doit($sql);
 	}
 
-// partiendo de que ya tenemos creado un objecto CategoryData previamente utilizamos el contexto
 	public function update(){
 		$sql = "update ".self::$tablename." set name=\"$this->name\" where id=$this->id";
 		Executor::doit($sql);
