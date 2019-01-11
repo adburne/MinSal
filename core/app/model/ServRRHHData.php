@@ -50,7 +50,7 @@ class ServRRHHData {
 
 
 	public static function getAll(){
-		$sql = "select * from ".self::$tablename;
+		$sql = "select * from ".self::$tablename." ORDER BY name";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ServRRHHData());
 	}
