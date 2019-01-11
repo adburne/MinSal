@@ -34,8 +34,14 @@ class RRHHData {
 		$sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new RRHHData());
-
 	}
+
+	public static function getByNroDoc($nrodoc){
+		$sql = "select * from ".self::$tablename." where inrodoc=$nrodoc";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new RRHHData());
+	}
+
 
 	public static function getAll(){
 		$sql = "select * from ".self::$tablename;
