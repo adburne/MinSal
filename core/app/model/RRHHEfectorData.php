@@ -6,13 +6,17 @@ class RRHHEfectorData {
 		$this->nrodoc = "0";
 		$this->codest = "0";
 		$this->servrrhh_id = "0";
-		$this->sitrevista_id = "0";
+		$this->sit_revista_id = "0";
 		$this->cargahoraria = "0";
 		$this->observaciones = "";
 		$this->created_at = "NOW()";
 	}
 
-	public function getCategory(){ return CategoryData::getById($this->category_id);}
+	public function getServRRHH(){ return ServRRHHData::getById($this->servrrhh_id);}
+
+	public function getRRHH(){ return RRHHData::getByNroDoc($this->nrodoc);}
+
+	public function getSitRev(){ return SitRevistaData::getById($this->sit_revista_id);}
 
 	public function add(){
 		$sql = "insert into ".self::$tablename." (codest,nomest,domicilio,codloc,codsubregion,";
@@ -99,85 +103,18 @@ class RRHHEfectorData {
 		Executor::doit($sql);
 	}
 
-	public function del_category(){
-		$sql = "update ".self::$tablename." set category_id=NULL where id=$this->id";
-		Executor::doit($sql);
-	}
-
-
-	public function update_image(){
-		$sql = "update ".self::$tablename." set image=\"$this->image\" where id=$this->id";
-		Executor::doit($sql);
-	}
-
-	public static function getById($id){
-		$sql = "select * from ".self::$tablename." where id=$id";
-		$query = Executor::doit($sql);
-		return Model::one($query[0],new EfectorData());
-
-	}
-
 	public static function getAll(){
 		$sql = "select * from ".self::$tablename;
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new RRHHEfectorData());
 	}
 
-	public static function getAllByUserId($user_id){
-		$sql = "select E.* from ".self::$tablename." E INNER JOIN user_efectores UE ";
-		$sql .= "ON E.Id=UE.efector_id ";
-		$sql .= "WHERE UE.user_id=$user_id";
+	public static function getByEfeServ($codest, $codservrrhh){
+		$sql = "select * from ".self::$tablename." WHERE codest=$codest";
+		if(isset($codservrrhh) && $codservrrhh!=null){$sql .= " AND servrrhh_id=$codservrrhh";}
 		$query = Executor::doit($sql);
-		return Model::many($query[0],new EfectorData());
+		return Model::many($query[0],new RRHHEfectorData());
 	}
-
-	public static function getAllByPage($start_from,$limit){
-		$sql = "select * from ".self::$tablename." where id>=$start_from limit $limit";
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new EfectorData());
-	}
-
-
-	public static function getLike($p){
-		$sql = "select * from ".self::$tablename." where codest like '%$p%' or nomest like '%$p%'";
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new EfectorData());
-	}
-
-	public static function getLikeByUserId($p,$user_id){
-		$sql = "select E.* from ".self::$tablename." E INNER JOIN user_efectores UE ";
-		$sql .= "ON E.Id=UE.efector_id ";
-		$sql .= "WHERE (codest LIKE '%$p%' OR nomest like '%$p%') AND UE.user_id=$user_id";
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new EfectorData());
-	}
-
-	public static function getLikeByPage($p,$start_from,$limit){
-		$sql = "select * from ".self::$tablename." where (codest like '%$p%' or nomest like '%$p%') and id>=$start_from limit $limit";
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new EfectorData());
-	}
-
-	public static function getLikeByPageUserId($p,$start_from,$limit,$user_id){
-		$sql = "select E.* from ".self::$tablename." E INNER JOIN user_efectores UE ";
-		$sql .= "ON E.Id=UE.efector_id ";
-		$sql .= "WHERE (codest LIKE '%$p%' OR nomest like '%$p%') AND " ;
-		$sql .= "E.Id>=$start_from AND UE.user_id=$user_id LIMIT $limit";
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new EfectorData());
-	}
-
-	public static function getAllByCategoryId($category_id){
-		$sql = "select * from ".self::$tablename." where category_id=$category_id order by created_at desc";
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new EfectorData());
-	}
-
-
-
-
-
-
 
 }
 
