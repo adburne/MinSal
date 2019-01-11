@@ -37,7 +37,7 @@ class RRHHData {
 	}
 
 	public static function getByNroDoc($nrodoc){
-		$sql = "select * from ".self::$tablename." where inrodoc=$nrodoc";
+		$sql = "select * from ".self::$tablename." where nrodoc=$nrodoc";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new RRHHData());
 	}
