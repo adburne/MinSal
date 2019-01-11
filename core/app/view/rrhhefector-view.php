@@ -50,7 +50,7 @@ $servrrhhs = ServRRHHData::getAll();
 </form>
 
 <?php 
-if(isset($_POST["codefe"])){
+if(isset($_POST["codefe"]) && $_POST["codefe"]<>''){
 $rrhhefectores = RRHHEfectorData::getByEfeServ($_POST["codefe"],$_POST["codservrrhh"]);
 ?>
 
