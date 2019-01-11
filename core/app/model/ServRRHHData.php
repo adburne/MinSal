@@ -11,8 +11,8 @@ class ServRRHHData {
 	}
 
 	public function add(){
-		$sql = "insert into category (name,created_at) ";
-		$sql .= "value (\"$this->name\",$this->created_at)";
+		$sql = "insert into category (name,codcatrrhh,created_at) ";
+		$sql .= "value (\"$this->name\",$this->codcatrrhh,$this->created_at)";
 		Executor::doit($sql);
 	}
 
@@ -25,29 +25,26 @@ class ServRRHHData {
 		Executor::doit($sql);
 	}
 
-// partiendo de que ya tenemos creado un objecto CategoryData previamente utilizamos el contexto
 	public function update(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\" where id=$this->id";
+		$sql = "update ".self::$tablename." set name=\"$this->name\", codcatrrhh=$this->codcatrrhh where id=$this->id";
 		Executor::doit($sql);
 	}
-
 
 	public static function getById($id){
 		$sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);
 		$found = null;
-		$data = new CategoryData();
+		$data = new ServRRHHData();
 		while($r = $query[0]->fetch_array()){
 			$data->id = $r['id'];
 			$data->name = $r['name'];
+			$data->codcatrrhh = $r['codcatrrhh'];
 			$data->created_at = $r['created_at'];
 			$found = $data;
 			break;
 		}
 		return $found;
 	}
-
-
 
 	public static function getAll(){
 		$sql = "select * from ".self::$tablename." ORDER BY name";
@@ -65,6 +62,7 @@ class ServRRHHData {
 			$array[$cnt] = new CategoryData();
 			$array[$cnt]->id = $r['id'];
 			$array[$cnt]->name = $r['name'];
+			$array[$cnt]->codcatrrhh = $r['codcatrrhh'];
 			$array[$cnt]->created_at = $r['created_at'];
 			$cnt++;
 		}
