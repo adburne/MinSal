@@ -110,8 +110,11 @@ class RRHHEfectorData {
 	}
 
 	public static function getByEfeServ($codest, $codservrrhh){
-		$sql = "select * from ".self::$tablename." WHERE codest=$codest";
-		if(isset($codservrrhh) && $codservrrhh!=null){$sql .= " AND servrrhh_id=$codservrrhh";}
+		$sql = "select R.* from ".self::$tablename." R ";
+		$sql .= "INNER JOIN rrhh USING (nrodoc) ";
+		$sql .= "WHERE R.codest=$codest ";
+		if(isset($codservrrhh) && $codservrrhh!=null){$sql .= " AND R.servrrhh_id=$codservrrhh ";}
+		$sql .= "ORDER BY rrhh.nombre ";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new RRHHEfectorData());
 	}
