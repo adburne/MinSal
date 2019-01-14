@@ -146,19 +146,16 @@ class EfectorData {
 		Executor::doit($sql);
 	}
 
-	public function del_category(){
-		$sql = "update ".self::$tablename." set category_id=NULL where id=$this->id";
-		Executor::doit($sql);
-	}
-
-
-	public function update_image(){
-		$sql = "update ".self::$tablename." set image=\"$this->image\" where id=$this->id";
-		Executor::doit($sql);
-	}
-
 	public static function getById($id){
 		$sql = "select * from ".self::$tablename." where id=$id";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new EfectorData());
+	}
+
+	public static function getByCodEstByUserId($codest, $user_id){
+		$sql = "select E.* from ".self::$tablename." E INNER JOIN user_efectores UE ";
+		$sql .= "ON E.Id=UE.efector_id ";
+		$sql .= "WHERE UE.user_id=$user_id AND codest=$codest ";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new EfectorData());
 	}
@@ -182,7 +179,6 @@ class EfectorData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EfectorData());
 	}
-
 
 	public static function getLike($p){
 		$sql = "select * from ".self::$tablename." where codest like '%$p%' or nomest like '%$p%'";
@@ -212,19 +208,6 @@ class EfectorData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EfectorData());
 	}
-
-	public static function getAllByCategoryId($category_id){
-		$sql = "select * from ".self::$tablename." where category_id=$category_id order by created_at desc";
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new EfectorData());
-	}
-
-
-
-
-
-
-
 }
 
 ?>
