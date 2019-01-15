@@ -7,7 +7,7 @@ class RRHHEfectorData {
 		$this->codest = "0";
 		$this->servrrhh_id = "0";
 		$this->sit_revista_id = "0";
-		$this->cargahoraria = "0";
+		$this->carga_horaria = "0";
 		$this->observaciones = "";
 		$this->created_at = "NOW()";
 	}
@@ -19,18 +19,9 @@ class RRHHEfectorData {
 	public function getSitRev(){ return SitRevistaData::getById($this->sit_revista_id);}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (codest,nomest,domicilio,codloc,codsubregion,";
-		$sql .= "latitud,longitud,telefono,email,codda,nivel,director,directortelefono,";
-		$sql .= "directoremail,subdirector,subdirectortelefono,subdirectoremail,representante,";
-		$sql .= "representantetelefono,representanteemail,tiene_rx,tiene_eco,tiene_tac,tiene_rmn,";
-		$sql .= "tiene_lab,tiene_ecg,tiene_mamografia,tiene_atencionmanana,tiene_atenciontarde,";
-		$sql .= "tiene_guardia24hs,tiene_saludmental,tiene_maternidad,tiene_pediatria,";
-		$sql .= "tiene_saludbucal,tiene_sillonsaludbucal,tiene_movilidad,tiene_trasladoprogramado,";
-		$sql .= "ambul_munic,ambul_provin,totalcamas,sicap,diagnose,otros_sistemas,";
-		$sql .= "tiene_aguapotable,tiene_gasnatural,tiene_calefaccion,tiene_aireacondicionado,";
-		$sql .= "tiene_internet,cant_pc,codcalidad_estructuraedilicia,codda_titularidadinmueble,";
-		$sql .= "areaadesarrollar,enobrasyconstruccion,created_at) value ";
-		$sql .= "($this->codest,\"$this->nomest\",\"$this->domicilio\",$this->codloc,$this->codsubregion,\"$this->latitud\",\"$this->longitud\",\"$this->telefono\",\"$this->email\",\"$this->codda\",\"$this->nivel\",\"$this->director\",\"$this->directortelefono\",\"$this->directoremail\",\"$this->subdirector\",\"$this->subdirectortelefono\",\"$this->subdirectoremail\",\"$this->representante\",\"$this->representantetelefono\",\"$this->representanteemail\",\"$this->tiene_rx\",\"$this->tiene_eco\",\"$this->tiene_tac\",\"$this->tiene_rmn\",\"$this->tiene_lab\",\"$this->tiene_ecg\",\"$this->tiene_mamografia\",\"$this->tiene_atencionmanana\",\"$this->tiene_atenciontarde\",\"$this->tiene_guardia24hs\",\"$this->tiene_saludmental\",\"$this->tiene_maternidad\",\"$this->tiene_pediatria\",\"$this->tiene_saludbucal\",\"$this->tiene_sillonsaludbucal\",\"$this->tiene_movilidad\",\"$this->tiene_trasladoprogramado\",\"$this->ambul_munic\",\"$this->ambul_provin\",\"$this->totalcamas\",\"$this->sicap\",\"$this->diagnose\",\"$this->otros_sistemas\",\"$this->tiene_aguapotable\",\"$this->tiene_gasnatural\",\"$this->tiene_calefaccion\",\"$this->tiene_aireacondicionado\",\"$this->tiene_internet\",\"$this->cant_pc\",\"$this->codcalidad_estructuraedilicia\",\"$this->codda_titularidadinmueble\",\"$this->areaadesarrollar\",\"$this->enobrasyconstruccion\",NOW())";
+		$sql = "insert into ".self::$tablename." (nrodoc,codest,servrrhh_id,";
+		$sql .= "sit_revista_id,carga_horaria,observaciones,created_at) value ";
+		$sql .= "($this->nrodoc,$this->codest,$this->servrrhh_id,$this->sit_revista_id,$this->carga_horaria,\"$this->observaciones\",NOW())";
 		return Executor::doit($sql);
 	}
 
