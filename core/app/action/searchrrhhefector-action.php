@@ -56,7 +56,7 @@ if($px<=$npaginas):
 		
 
 		<td style="width:70px;">
-		<a href="index.php?view=newRRHHEfector&codefe=<?php echo $_GET["codefe"]; ?>&nrodoc=<?php echo $RRHH->nrodoc; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i></a>
+		<a href="index.php?view=newrrhhefector&codefe=<?php echo $_GET["codefe"]; ?>&nrodoc=<?php echo $RRHH->nrodoc; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i></a>
 		</td>
 	</tr>
 	<?php endforeach;?>
