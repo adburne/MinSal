@@ -68,7 +68,7 @@ $rrhhefectores = RRHHEfectorData::getByEfeServ($_POST["codefe"],$_POST["codservr
 	<th>Sit.Revista</th>
 	<th>Horas</th>
 	<th>Observaciones</th>
-    <th style="width:130px;"><a href="index.php?view=newrrhhefector&codefe=<?php echo $_POST["codefe"];?>" class="btn btn-info btn-sm">Agregar RRHH</a></th>
+    <th style="width:130px;"><a href="index.php?view=selectnewrrhhefector&codefe=<?php echo $_POST["codefe"];?>" class="btn btn-info btn-sm">Agregar RRHH</a></th>
 </thead>
 
 <?php foreach($rrhhefectores as $rrhh):?>
