@@ -27,22 +27,24 @@ $sitrevistas = SitRevistaData::getAll();
   <div class="form-group">
    <label for="inputEmail1" class="col-lg-2 control-label">Efector</label>
    <div class="col-md-6">
-    <input type="text" required name="efector" id="efector" value="<?php echo $efector->nomest.' ('.$efector->codest.')'; ?>" class="form-control" readonly>
+    <input type="hidden" name="codest" id="codest" value="<?php echo $efector->codest; ?>" class="form-control" readonly>
+    <input type="text" name="efector" id="efector" value="<?php echo $efector->nomest.' ('.$efector->codest.')'; ?>" class="form-control" readonly>
    </div>
   </div>
 
   <div class="form-group">
    <label for="inputEmail1" class="col-lg-2 control-label">RRHH</label>
    <div class="col-md-6">
-    <input type="text" required name="rrhh" id="rrhh" value="<?php echo $rrhh->nombre.' ('.$rrhh->nrodoc.')'; ?>" class="form-control" readonly>
+    <input type="hidden" name="nrodoc" id="nrodoc" value="<?php echo $rrhh->nrodoc; ?>" class="form-control" readonly>
+    <input type="text" name="rrhh" id="rrhh" value="<?php echo $rrhh->nombre.' ('.$rrhh->nrodoc.')'; ?>" class="form-control" readonly>
    </div>
   </div>
 
   <!-- Servicio -->
   <div class="form-group">
-   <label for="servrrhh" class="col-lg-2 control-label">Servicio</label>
+   <label for="servrrhh_id" class="col-lg-2 control-label">Servicio</label>
    <div class="col-md-6">
-    <select name="servrrhh" class="form-control">
+    <select name="servrrhh_id" class="form-control">
     <option value="">-- NINGUNO --</option>
     <?php foreach($servrrhhs as $servrrhh):?>
     <option value="<?php echo $servrrhh->id;?>"><?php echo $servrrhh->name;?></option>
@@ -53,9 +55,9 @@ $sitrevistas = SitRevistaData::getAll();
 
   <!-- SitRevista -->
   <div class="form-group">
-   <label for="sitrev" class="col-lg-2 control-label">Situaci&oacute;n de Revista</label>
+   <label for="sit_revista_id" class="col-lg-2 control-label">Situaci&oacute;n de Revista</label>
    <div class="col-md-6">
-    <select name="sitrev" class="form-control">
+    <select name="sit_revista_id" class="form-control">
     <option value="">-- NINGUNA --</option>
     <?php foreach($sitrevistas as $sitrevista):?>
     <option value="<?php echo $sitrevista->id;?>"><?php echo $sitrevista->name;?></option>
