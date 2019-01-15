@@ -43,7 +43,7 @@ if($px<=$npaginas):
 <?php endif; ?>
 </div>
 <div class="clearfix"></div>
-<br><table class="table table-bordered table-hover">
+<br><table  style="width:50%;" class="table table-bordered table-hover">
 	<thead>
 		<th>Documento</th>
 		<th>Nombre</th>
@@ -51,12 +51,12 @@ if($px<=$npaginas):
 	</thead>
 	<?php foreach($curr_RRHH as $RRHH):?>
 	<tr>
-		<td><?php echo $RRHH->nrodoc; ?></td>
+		<td style="width:30px;"><?php echo $RRHH->nrodoc; ?></td>
 		<td><?php echo $RRHH->nombre; ?></td>
 		
 
 		<td style="width:70px;">
-		<a href="index.php?view=addRRHHEfector&id=<?php echo $RRHH->id; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i></a>
+		<a href="index.php?view=addRRHHEfector&codefe=<?php echo $_GET["codefe"]; ?>&nrodoc=<?php echo $RRHH->nrodoc; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i></a>
 		</td>
 	</tr>
 	<?php endforeach;?>
