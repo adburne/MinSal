@@ -1,5 +1,8 @@
 <?php
-$efector = EfectorData::getByCodEstByUserId($_GET["codefe"], $_SESSION["user_id"]);
+
+$codefe = $_GET["codefe"];
+
+$efector = EfectorData::getByCodEstByUserId($codefe, $_SESSION["user_id"]);
 if (!isset($efector)){
  echo "<p class='alert alert-warning'>El efector es inexistente <a href='index.php?view=rrhhefector'>Ir a RRHH por Efector</a></p>";
  exit();
@@ -10,11 +13,12 @@ if (!isset($efector)){
 	<div class="col-md-12">
 	<a href="index.php?view=newRRHH" class="btn btn-default pull-right"><i class='fa fa-th-list'></i> Nuevo RRHH</a>
 	<h1><?php echo $efector->nomest; ?></h1>
-	<p><b>Ingrese el nombre o documento del agente a ingresar:</b></p>
+	<p><b>Ingrese el nombre o documento del agente a incorporar al <?php echo $efector->nomest; ?>:</b></p>
 		<form id="searchrh">
 		<div class="row">
 			<div class="col-md-6">
 				<input type="hidden" name="view" value="rrhh">
+				<input type="hidden" name="codefe" value="<?php echo $codefe; ?>">
 				<input type="text" id="rrhh_id" name="rrhh" class="form-control">
 			</div>
 			<div class="col-md-3">
