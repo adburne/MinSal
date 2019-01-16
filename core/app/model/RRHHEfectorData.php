@@ -25,12 +25,13 @@ class RRHHEfectorData {
 		return Executor::doit($sql);
 	}
 
-	public static function delById($id){
-		$sql = "delete from ".self::$tablename." where id=$id";
-		Executor::doit($sql);
-	}
-	public function del(){
-		$sql = "delete from ".self::$tablename." where id=$this->id";
+//	public static function delByEfeNroDoc($codest, $nrodoc){
+//		$sql = "delete from ".self::$tablename." where codest=$codest and nrodoc=$nrodoc";
+//		Executor::doit($sql);
+//	}
+
+	public function delByEfeNroDoc(){
+		$sql = "delete from ".self::$tablename." where codest=$this->codest and nrodoc=$this->nrodoc";
 		Executor::doit($sql);
 	}
 
