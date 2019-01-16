@@ -36,61 +36,12 @@ class RRHHEfectorData {
 
 	public function update(){
 		$sql = "update ".self::$tablename." set ";
-		$sql .= "domicilio=\"$this->domicilio\", ";
-		$sql .= "codloc=\"$this->codloc\", ";
-		$sql .= "codsubregion=\"$this->codsubregion\", ";
-		$sql .= "latitud=\"$this->latitud\", ";
-		$sql .= "longitud=\"$this->longitud\", ";
-		$sql .= "telefono=\"$this->telefono\", ";
-		$sql .= "email=\"$this->email\", ";
-		$sql .= "codda=\"$this->codda\", ";
-		$sql .= "nivel=\"$this->nivel\", ";
-		$sql .= "director=\"$this->director\", ";
-		$sql .= "directortelefono=\"$this->directortelefono\", ";
-		$sql .= "directoremail=\"$this->directoremail\", ";
-		$sql .= "subdirector=\"$this->subdirector\", ";
-		$sql .= "subdirectortelefono=\"$this->subdirectortelefono\", ";
-		$sql .= "subdirectoremail=\"$this->subdirectoremail\", ";
-		$sql .= "representante=\"$this->representante\", ";
-		$sql .= "representantetelefono=\"$this->representantetelefono\", ";
-		$sql .= "representanteemail=\"$this->representanteemail\", ";
-		$sql .= "tiene_rx=\"$this->tiene_rx\", ";
-		$sql .= "tiene_eco=\"$this->tiene_eco\", ";
-		$sql .= "tiene_tac=\"$this->tiene_tac\", ";
-		$sql .= "tiene_rmn=\"$this->tiene_rmn\", ";
-		$sql .= "tiene_mamografia=\"$this->tiene_mamografia\", ";
-		$sql .= "tiene_lab=\"$this->tiene_lab\", ";
-		$sql .= "tiene_ecg=\"$this->tiene_ecg\", ";
-		$sql .= "tiene_atencionmanana=\"$this->tiene_atencionmanana\", ";
-		$sql .= "tiene_atenciontarde=\"$this->tiene_atenciontarde\", ";
-		$sql .= "tiene_guardia24hs=\"$this->tiene_guardia24hs\", ";
-		$sql .= "tiene_saludmental=\"$this->tiene_saludmental\", ";
-		$sql .= "tiene_maternidad=\"$this->tiene_maternidad\", ";
-		$sql .= "tiene_pediatria=\"$this->tiene_pediatria\", ";
-		$sql .= "tiene_saludbucal=\"$this->tiene_saludbucal\", ";
-		$sql .= "tiene_sillonsaludbucal=\"$this->tiene_sillonsaludbucal\", ";
-		$sql .= "tiene_movilidad=\"$this->tiene_movilidad\", ";
-		$sql .= "tiene_trasladoprogramado=\"$this->tiene_trasladoprogramado\", ";
-		$sql .= "ambul_munic=\"$this->ambul_munic\", ";
-		$sql .= "ambul_provin=\"$this->ambul_provin\", ";
-		$sql .= "totalcamas=\"$this->totalcamas\", ";
-		$sql .= "sicap=\"$this->sicap\", ";
-		$sql .= "diagnose=\"$this->diagnose\", ";
-		$sql .= "otrossistemas=\"$this->otrossistemas\", ";
-		$sql .= "otrosservicios=\"$this->otrosservicios\", ";
-		$sql .= "efectorreferencia=\"$this->efectorreferencia\", ";
-		$sql .= "tiene_aguapotable=\"$this->tiene_aguapotable\", ";
-		$sql .= "tiene_gasnatural=\"$this->tiene_gasnatural\", ";
-		$sql .= "tiene_calefaccion=\"$this->tiene_calefaccion\", ";
-		$sql .= "tiene_aireacondicionado=\"$this->tiene_aireacondicionado\", ";
-		$sql .= "tiene_internet=\"$this->tiene_internet\", ";
-		$sql .= "cant_pc=\"$this->cant_pc\", ";
-		$sql .= "codcalidad_estructuraedilicia=\"$this->codcalidad_estructuraedilicia\", ";
-		$sql .= "codda_titularidadinmueble=\"$this->codda_titularidadinmueble\", ";
-		$sql .= "areaadesarrollar=\"$this->areaadesarrollar\", ";
-		$sql .= "enobrasyconstruccion=\"$this->enobrasyconstruccion\", ";
+		$sql .= "servrrhh_id=$this->servrrhh_id, ";
+		$sql .= "sit_revista_id=$this->sit_revista_id, ";
+		$sql .= "carga_horaria=$this->carga_horaria, ";
+		$sql .= "observaciones=\"$this->observaciones\", ";
 		$sql .= "created_at=NOW() ";
-		$sql .= "where id=$this->id";
+		$sql .= "where nrodoc=$this->nrodoc and codest=$this->codest";
 		Executor::doit($sql);
 	}
 
@@ -108,6 +59,13 @@ class RRHHEfectorData {
 		$sql .= "ORDER BY rrhh.nombre ";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new RRHHEfectorData());
+	}
+
+	public static function getByEfeNroDoc($codest, $nrodoc){
+		$sql = "select * from ".self::$tablename." ";
+		$sql .= "WHERE codest=$codest AND nrodoc=$nrodoc";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new RRHHEfectorData());
 	}
 
 }
