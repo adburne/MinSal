@@ -7,8 +7,9 @@ if(count($_POST)>0){
 	$rrhhefector->carga_horaria = $_POST["carga_horaria"];
 	$rrhhefector->observaciones = $_POST["observaciones"];
     $rrhhefector->update();
-print "<script>window.location='index.php?view=rrhhefector';</script>";
-//print "<script>window.location='index.php?view=rrhhefector&codefe=$_POST["codest"]';</script>";
+//print "<script>window.location='index.php?view=rrhhefector&codefe=$rrhhefector->codest';</script>";
+
+Core::redir("./index.php?view=rrhhefector&codefe=$rrhhefector->codest");
 
 }
 
