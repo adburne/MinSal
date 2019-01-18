@@ -113,14 +113,6 @@
             <li><a href="./?view=rrhhefector"><i class='fa fa-users'></i> <span>RRHH por efector</span></a></li>
 
             <li class="treeview">
-              <a href="#"><i class='fa fa-database'></i> <span>Catalogos</span> <i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="./?view=qualities">Calidades</a></li>
-                <li><a href="./?view=providers">Proveedores</a></li>
-              </ul>
-            </li>
-
-            <li class="treeview">
               <a href="#"><i class='fa fa-globe'></i> <span>Locaciones</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="./?view=localidades">Localidades</a></li>
@@ -129,23 +121,13 @@
               </ul>
             </li>
 
-
             <li class="treeview">
-              <a href="#"><i class='fa fa-area-chart'></i> <span>Inventario</span> <i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="./?view=inventary">Inventario</a></li>
-                <li><a href="./?view=re">Abastecer</a></li>
-                <li><a href="./?view=res">Abastecimientos</a></li>
-              </ul>
-            </li>
-                        <li class="treeview">
               <a href="#"><i class='fa fa-file-text-o'></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="./?view=reports">Inventario</a></li>
                 <li><a href="./?view=sellreports">Ventas</a></li>
               </ul>
             </li>
-
 
             <li class="treeview">
               <a href="#"><i class='fa fa-cog'></i> <span>Administracion</span> <i class="fa fa-angle-left pull-right"></i></a>
