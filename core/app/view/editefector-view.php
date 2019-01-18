@@ -24,14 +24,14 @@ if($efector!=null):
     <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Codigo de Efector*</label>
      <div class="col-md-6">
-     <input type="text" required name="id" id="efector_code" value="<?php echo $efector->codest; ?>" placeholder="Ingrese el código asignado al efector" class="form-control">
+     <input type="text" required readonly name="id" id="efector_code" value="<?php echo $efector->codest; ?>" placeholder="Ingrese el código asignado al efector" class="form-control">
      </div>
     </div>
 
     <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
      <div class="col-md-6">
-     <input type="text" required name="name" id="name" value="<?php echo $efector->nomest; ?>" placeholder="Nombre del efector" class="form-control" >
+     <input type="text" required readonly name="name" id="name" value="<?php echo $efector->nomest; ?>" placeholder="Nombre del efector" class="form-control" >
      </div>
     </div>
 
@@ -87,10 +87,10 @@ if($efector!=null):
         <div class="container">
          <div class="row">
           <div class="col-md-2">
-          <input type="text" name="latitud" id="latitud" value="<?php echo $efector->latitud; ?>" placeholder="Latitud" class="form-control">
+          <input type="text" readonly name="latitud" id="latitud" value="<?php echo $efector->latitud; ?>" placeholder="Latitud" class="form-control">
           </div>
           <div class="col-md-2">
-          <input type="text" name="longitud" id="longitud" value="<?php echo $efector->longitud; ?>" placeholder="Longitud" class="form-control">
+          <input type="text" readonly name="longitud" id="longitud" value="<?php echo $efector->longitud; ?>" placeholder="Longitud" class="form-control">
           </div>
          </div>
         </div>
