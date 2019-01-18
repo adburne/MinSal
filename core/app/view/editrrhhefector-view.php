@@ -85,7 +85,7 @@ $rrhhefector = RRHHEfectorData::getByEfeNroDoc($codefe,$nrodoc);
    <div class="container">
     <div class="row">
      <div class="col-md-8">
-      <textarea name="observaciones" id="observaciones" value="<?php echo $rrhhefector->observaciones; ?>" placeholder="Ingrese las observaciones relevantes" class="form-control"></textarea>
+      <textarea name="observaciones" id="observaciones" placeholder="Ingrese las observaciones relevantes" class="form-control"><?php echo $rrhhefector->observaciones; ?></textarea>
      </div>
     </div>
    </div>
