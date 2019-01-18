@@ -189,7 +189,7 @@ class EfectorData {
 	public static function getLikeByUserId($p,$user_id){
 		$sql = "select E.* from ".self::$tablename." E INNER JOIN user_efectores UE ";
 		$sql .= "ON E.Id=UE.efector_id ";
-		$sql .= "WHERE (codest LIKE '%$p%' OR nomest like '%$p%') AND UE.user_id=$user_id";
+		$sql .= "WHERE (codest LIKE '%$p%' OR nomest like '%$p%') AND UE.user_id=$user_id ORDER BY E.Id";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EfectorData());
 	}
@@ -204,7 +204,7 @@ class EfectorData {
 		$sql = "select E.* from ".self::$tablename." E INNER JOIN user_efectores UE ";
 		$sql .= "ON E.Id=UE.efector_id ";
 		$sql .= "WHERE (codest LIKE '%$p%' OR nomest like '%$p%') AND " ;
-		$sql .= "E.Id>=$start_from AND UE.user_id=$user_id LIMIT $limit";
+		$sql .= "E.Id>=$start_from AND UE.user_id=$user_id ORDER BY E.Id LIMIT $limit";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EfectorData());
 	}
