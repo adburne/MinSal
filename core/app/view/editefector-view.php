@@ -337,11 +337,11 @@ if($efector!=null):
         <div class="row">
         <br>
          <div class="col-md-11">
-         <textarea name="otrosservicios" id="otrosservicios" value="<?php echo $efector->otrosservicios; ?>" placeholder="Otros servicios" class="form-control"></textarea>
+         <textarea name="otrosservicios" id="otrosservicios" placeholder="Otros servicios" class="form-control"><?php echo $efector->otrosservicios; ?></textarea>
          </div>
          <div class="col-md-11">
          <br>
-         <textarea name="efectorreferencia" id="efectorreferencia" value="<?php echo $efector->efectorreferencia; ?>" placeholder="Efectores de referencia" class="form-control"></textarea>
+         <textarea name="efectorreferencia" id="efectorreferencia" placeholder="Efectores de referencia" class="form-control"><?php echo $efector->efectorreferencia; ?></textarea>
          </div>
         </div>
        </div>
@@ -421,14 +421,14 @@ if($efector!=null):
         <div class="row">
          <br>
          <div class="col-md-11">
-         <textarea name="enobrasyconstruccion" id="enobrasyconstruccion" value="<?php echo $efector->obrasencurso; ?>" placeholder="Obras en Curso" class="form-control"></textarea>
+         <textarea name="enobrasyconstruccion" id="enobrasyconstruccion" placeholder="Obras en Curso" class="form-control"><?php echo $efector->enobrasyconstruccion; ?></textarea>
          </div>
         </div>
 
         <div class="row">
          <br>
          <div class="col-md-11">
-         <textarea name="areaadesarrollar" id="areaadesarrollar" value="<?php echo $efector->areaadesarrollar; ?>" placeholder="Area a desarrollar" class="form-control"></textarea>
+         <textarea name="areaadesarrollar" id="areaadesarrollar" placeholder="Area a desarrollar" class="form-control"><?php echo $efector->areaadesarrollar; ?></textarea>
          </div>
         </div>
 
