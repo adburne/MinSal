@@ -33,7 +33,7 @@ class View {
 			}
 				include $url;				
 			}else{
-				View::Error("<b>404 NOT FOUND</b> View <b>".$_GET['view']."</b> folder !! - <a href='http://evilnapsis.com/legobox/help/' target='_blank'>Help</a>");
+				View::Error("<b>404 NOT FOUND</b> View <b>".$_GET['view']."</b> folder !! - <a href='http://vps-1575234-x.dattaweb.com/MinSal/help/' target='_blank'>Help</a>");
 //				echo $_SESSION['user_id'];
 //				$username= UserData::getById($_SESSION['user_id']);
 //				echo $username->name;
