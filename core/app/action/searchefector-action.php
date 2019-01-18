@@ -32,14 +32,14 @@ if($spaginas>0){ $npaginas++;}
 $px=$page-1;
 if($px>0):
 ?>
-<a class="btn btn-sm btn-default" href="<?php echo "index.php?view=Efectores&limit=$limit&page=".($px); ?>"><i class="glyphicon glyphicon-chevron-left"></i> Atras </a>
+<a class="btn btn-sm btn-default" href="<?php echo "index.php?view=efectores&limit=$limit&page=".($px); ?>"><i class="glyphicon glyphicon-chevron-left"></i> Atras </a>
 <?php endif; ?>
 
 <?php 
 $px=$page+1;
 if($px<=$npaginas):
 ?>
-<a class="btn btn-sm btn-default" href="<?php echo "index.php?view=Efectores&limit=$limit&page=".($px); ?>">Adelante <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a class="btn btn-sm btn-default" href="<?php echo "index.php?view=efectores&limit=$limit&page=".($px); ?>">Adelante <i class="glyphicon glyphicon-chevron-right"></i></a>
 <?php endif; ?>
 </div>
 <div class="clearfix"></div>
@@ -66,7 +66,7 @@ if($px<=$npaginas):
 <?php
 
 for($i=0;$i<$npaginas;$i++){
-	echo "<a href='index.php?view=Efector&limit=$limit&page=".($i+1)."' class='btn btn-default btn-sm'>".($i+1)."</a> ";
+	echo "<a href='index.php?view=efectores&limit=$limit&page=".($i+1)."' class='btn btn-default btn-sm'>".($i+1)."</a> ";
 }
 ?>
 </div>
