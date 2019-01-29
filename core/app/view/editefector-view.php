@@ -92,6 +92,9 @@ if($efector!=null):
           <div class="col-md-2">
           <input type="text" readonly name="longitud" id="longitud" value="<?php echo $efector->longitud; ?>" placeholder="Longitud" class="form-control">
           </div>
+          <div class="col-sm-4">
+          <a href="http://www.google.com/maps/@<?php echo $efector->latitud; ?>,<?php echo $efector->longitud; ?>,15z" target="_blank"><i class='fa fa-globe'> Ver en el mapa</i></a>
+          </div>
          </div>
         </div>
        </div>
@@ -280,7 +283,7 @@ if($efector!=null):
          <input type="checkbox" name=tiene_guardia24hs value="tiene_guardia24hs"<?php echo ($efector->tiene_guardia24hs == 1 ? "checked":""); ?>> Guardia 24 Hs.
          </div>
          <div class="col-md-3">
-         <input type="text" name="totalcamas" id="totalcamas" value="<?php echo $efector->totalcamas; ?>" placeholder="Total de camas del establecimiento" class="form-control">
+         <input type="text" name="totalcamas" id="totalcamas" value="<?php if($efector->totalcamas>0){ echo $efector->totalcamas;} ?>" placeholder="Total de camas del establecimiento" class="form-control">
          </div>
         </div>
 
@@ -314,10 +317,10 @@ if($efector!=null):
          <input type="checkbox" name=tiene_trasladoprogramado value="tiene_trasladoprogramado"<?php echo ($efector->tiene_trasladoprogramado == 1 ? "checked":""); ?>> Servicio de traslado programado
          </div>
          <div class="col-md-3">
-         <input type="text" name="ambul_munic" id="ambul_munic" value="<?php echo $efector->ambul_munic; ?>" placeholder="Cant. de ambulancias municipales" class="form-control">
+         <input type="text" name="ambul_munic" id="ambul_munic" value="<?php if($efector->ambul_munic>0){ echo $efector->ambul_munic;} ?>" placeholder="Cant. de ambulancias municipales" class="form-control">
          </div>
          <div class="col-md-3">
-         <input type="text" name="ambul_provin" id="ambul_provin" value="<?php echo $efector->ambul_provin; ?>" placeholder="Cant. de ambulancias provinciales" class="form-control">
+         <input type="text" name="ambul_provin" id="ambul_provin" value="<?php if($efector->ambul_provin>0){ echo $efector->ambul_provin;} ?>" placeholder="Cant. de ambulancias provinciales" class="form-control">
          </div>
         </div>
 
@@ -387,7 +390,7 @@ if($efector!=null):
        <br>
        <label for="cant_pc" class="col-lg-2 control-label">Cantidad de computadoras</label>
         <div class="col-md-2">
-        <input type="text" name="cant_pc" id="cant_pc" value="<?php echo $efector->cant_pc; ?>" placeholder="Cantidad" class="form-control">
+        <input type="text" name="cant_pc" id="cant_pc" value="<?php if($efector->cant_pc>0){ echo $efector->cant_pc;} ?>" placeholder="Cantidad" class="form-control">
         </div>
        </div>
 
