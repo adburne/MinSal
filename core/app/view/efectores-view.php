@@ -1,6 +1,7 @@
 <div class="row">
 	<div class="col-md-12">
 	<a href="index.php?view=newefector" class="btn btn-default pull-right"><i class='fa fa-th-list'></i> Nuevo Efector</a>
+	<a href="index.php?action=exportarefectores" class="btn btn-default pull-right"><i class='fa fa-file-excel-o'></i> Exportar efectores</a>
 	<h1>Nómina de Efectores</h1>
 	<p><b>Buscar efectores por nombre o código:</b></p>
 		<form id="searche">
