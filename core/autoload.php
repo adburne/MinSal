@@ -29,9 +29,13 @@ include "controller/Session.php";
 include "controller/Lb.php";
 
 // 26 diciembre 2014
-include "controller/class.upload.php";
+// include "controller/class.upload.php";
 
 // 18 octubre 2018
 include "controller/UserPriv.php";
+
+// 13 febrero 2019
+include "Classes/PHPExcel.php";
+include "controller/Excel.php";
 
 ?>
