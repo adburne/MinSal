@@ -124,7 +124,7 @@
             <li class="treeview">
               <a href="#"><i class='fa fa-file-text-o'></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="./?view=rptEfectores">Efectores</a></li>
+                <li><a href="./?action=rptefectores">Efectores</a></li>
                 <li><a href="./?view=rptRRHHEfector">RRHH de un Efector</a></li>
               </ul>
             </li>
