@@ -70,7 +70,7 @@
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="">
-                      <a href="./profile.php" target="_blank" class="">Perfil</a>
+                      <a href="./?view=profile" class="">Perfil</a>
                   </li>
                   
                   <!-- Menu Footer-->
