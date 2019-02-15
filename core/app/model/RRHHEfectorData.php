@@ -25,11 +25,6 @@ class RRHHEfectorData {
 		return Executor::doit($sql);
 	}
 
-//	public static function delByEfeNroDoc($codest, $nrodoc){
-//		$sql = "delete from ".self::$tablename." where codest=$codest and nrodoc=$nrodoc";
-//		Executor::doit($sql);
-//	}
-
 	public function delByEfeNroDoc(){
 		$sql = "delete from ".self::$tablename." where codest=$this->codest and nrodoc=$this->nrodoc";
 		Executor::doit($sql);
