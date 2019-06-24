@@ -1,1 +1,1 @@
-# MinSal
+# MinSal v0.01
